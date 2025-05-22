@@ -9,6 +9,9 @@
 <!-- Tailwind Css Linke -->
      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <!-- Style Css -->
+ <!-- fontAwsome -->
+<script src="https://kit.fontawesome.com/6c2c9a2d71.js" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="style.css">
 
     <title>PH-Tube-web</title>
@@ -17,12 +20,12 @@
     <header>
         <nav>
 
-<div class=" border-b-3 border-b-slate-300 py-7 mx-auto flex w-11/12 justify-between ">
+<div class=" border-b-3 border-b-slate-300 py-4 lg:py-7 mx-auto lg:flex w-11/12 justify-between ">
   <div class="w-[150px]">
 <img src="assets/Logo.png" alt="">
 </div>
 <!-- input fild -->
-<label class="input">
+<label class="input my-2">
   <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <g
       stroke-linejoin="round"
@@ -35,10 +38,10 @@
       <path d="m21 21-4.3-4.3"></path>
     </g>
   </svg>
-  <input type="search" required placeholder="Search" />
+  <input id="input-fild" type="search" required placeholder="Search" />
 </label>
 <!-- input end -->
-  <div class="">
+  <div class="hidden md:inline-block">
     <a class="btn">Sort</a>
   </div>
 </div>
@@ -50,9 +53,10 @@
     <main>
 <section class=" w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-10 " id="videos"> </section>
     </main>
+
 <!-- modal strt -->
  <!-- Open the modal using ID.showModal() method -->
-<button id="showModalData" class="btn hidden " onclick="customModal.showModal()">open modal</button>
+<a id="showModalData" class="hidden" onclick="customModal.showModal()"></a>
 <dialog id="customModal" class="modal">
   <div class="modal-box">
   <div id="modal-container" >

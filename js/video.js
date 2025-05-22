@@ -50,7 +50,7 @@ const displayDetails = (data) =>{
 const detailsContainer = document.getElementById('modal-container')
 detailsContainer.innerHTML=`
 <img src="${data.thumbnail}" />
-<p>${data.description}</p>
+<p class=" font-semibold ">${data.description}</p>
 `;
 document.getElementById('customModal').showModal() ;
 
@@ -58,8 +58,8 @@ document.getElementById('customModal').showModal() ;
 
 
 // creat a load video
-const loadVideos = () =>{
-    fetch('https://openapi.programming-hero.com/api/phero-tube/videos') 
+const loadVideos = (searchText = '') =>{
+    fetch(`https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`) 
     .then( (res) => res.json())
     .then((data) => displayVideos(data.videos))
 }
@@ -96,7 +96,7 @@ card.innerHTML=`
       }
 
   </figure>
-  <div class=" flex px-0 gap-3 py-2 ">
+  <div class=" flex px-2 gap-3 py-3">
   <div>
 <img src="${video.authors[0].profile_picture}" class=" w-10 h-10 rounded-full object-cover " />
   </div>
@@ -114,6 +114,7 @@ card.innerHTML=`
   </div>
 `;
 videoContainer.append(card)
+card.classList.add('card-bodi')
     })
 };
 
@@ -125,13 +126,19 @@ const displayCategorie = (categorys) =>{
     // console.log(item)
     const div = document.createElement('div') ;
     div.innerHTML =`
-    <button id="btn-${item.category_id}" onclick="loadCategoriesVideo(${item.category_id})" class="btn category-btn"> ${item.category} </button>
+    <button id="btn-${item.category_id}" onclick="loadCategoriesVideo(${item.category_id})" class="btn category-btn"> ${item.category}<i class="fa-solid fa-forward"></i></button>
     ` ;
 divContainer.append(div)
 
   })
 }
 
+// input-fild search option 
+
+document.getElementById('input-fild').addEventListener('keyup', (a)=>{
+
+ loadVideos(a.target.value)
+})
 
 
 loadCategories() ;
